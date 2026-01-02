@@ -4,8 +4,6 @@ import Product_Service.Model.Product;
 import Product_Service.ProductDTO.ProductRequestDTO;
 import Product_Service.ProductDTO.ProductResponseDTO;
 
-import java.util.UUID;
-
 public class ProductMapper {
     public static ProductResponseDTO responseDTO (Product product){
 
@@ -14,7 +12,7 @@ public class ProductMapper {
                 .productName(product.getProductName())
                 .productCategory(product.getProductCategory())
                 .productDescription(product.getProductDescription())
-                .productManufacturer(product.getProductManufacturer())
+                .productManufacture(product.getProductManufacture())
                 .productPrice(product.getProductPrice())
                 .productSN(product.getProductSN())
                 .build();
@@ -25,7 +23,7 @@ public class ProductMapper {
 
         return Product.builder()
                 .productName(productRequestDTO.getProductName())
-                .productManufacturer(productRequestDTO.getProductManufacturer())
+                .productManufacture(productRequestDTO.getProductManufacturer())
                 .productCategory(productRequestDTO.getProductCategory())
                 .productDescription(productRequestDTO.getProductDescription())
                 .productPrice(productRequestDTO.getProductPrice())

@@ -9,10 +9,11 @@ import lombok.NoArgsConstructor;
 import org.antlr.v4.runtime.misc.NotNull;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
-@Table(name = "product_table", schema = "product_schema")
+@Table(name = "product", schema = "product_schema")
 @Data
 @Builder
 @AllArgsConstructor
@@ -21,16 +22,18 @@ public class Product {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+
     @NotNull
-    @Column(name = "productId", nullable = false)
+    @Column(name = "productId", nullable = false,columnDefinition = "uuid")
+
     private UUID productId;
 
-    @Column(name = "productName", nullable = false)
+    @Column(name = "product_name", nullable = false)
     private String productName;
 
     @NotNull
-    @Column(name = "product_canufacturer", nullable = false)
-    private String productManufacturer;
+    @Column(name = "product_manufacturer", nullable = false)
+    private String productManufacture;
 
     @NotNull
     @Column(name = "product_category", nullable = false)
@@ -40,12 +43,11 @@ public class Product {
     @Column(name = "product_description", nullable = false)
     private String productDescription;
 
-    @NotNull
-    @Column(name = "product_price", nullable = false)
-    private double productPrice;
 
+    @Column(name = "product_price", precision = 10, scale = 2, nullable = false)
+    private BigDecimal productPrice;
     @NotNull
-    @Column(name = "product_SN", nullable = false)
+    @Column(name = "product_sn", nullable = false)
     private String productSN;
 
 

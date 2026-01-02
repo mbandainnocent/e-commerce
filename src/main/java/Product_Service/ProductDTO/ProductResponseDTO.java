@@ -3,6 +3,7 @@ package Product_Service.ProductDTO;
 import lombok.Builder;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Data
@@ -11,9 +12,9 @@ public class ProductResponseDTO {
 
     private UUID productId;
     private String productName;
-    private String productManufacturer;
+    private String productManufacture;
     private String productCategory;
     private String productDescription;
-    private Double productPrice;
+    private BigDecimal productPrice;
     private String productSN;
 }

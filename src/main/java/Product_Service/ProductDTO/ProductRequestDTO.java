@@ -12,6 +12,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import javax.validation.constraints.*;
+import java.math.BigDecimal;
 
 @Data
 @AllArgsConstructor
@@ -35,7 +36,7 @@ public class ProductRequestDTO {
 
     @NotNull()
     @Positive(message = "Price must be a positive number")
-    private Double productPrice;
+    private BigDecimal productPrice;
 
     @NotBlank(message = "product_SN is required")
     private String productSN;
