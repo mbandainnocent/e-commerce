@@ -23,7 +23,7 @@ public class ProductMapper {
 
         return Product.builder()
                 .productName(productRequestDTO.getProductName())
-                .productManufacture(productRequestDTO.getProductManufacturer())
+                .productManufacture(productRequestDTO.getProductManufacture())
                 .productCategory(productRequestDTO.getProductCategory())
                 .productDescription(productRequestDTO.getProductDescription())
                 .productPrice(productRequestDTO.getProductPrice())

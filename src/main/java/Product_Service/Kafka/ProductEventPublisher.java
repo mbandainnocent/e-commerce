@@ -16,7 +16,7 @@ public class ProductEventPublisher {
     private String productTopic;
 
 
- private final KafkaTemplate< String, byte[]> kafkaTemplate;
+    private final KafkaTemplate< String, byte[]> kafkaTemplate;
 
     public ProductEventPublisher(KafkaTemplate<String,
             byte[]> kafkaTemplate) {
@@ -25,21 +25,21 @@ public class ProductEventPublisher {
 
 
     public void productEventCreated(Product product) {
-       ProductEvent productEvent = ProductEvent.newBuilder()
-               .setProductId(product.getProductId().toString())
-               .setName(product.getProductName())
-               .setDescription(product.getProductDescription())
-               .setEventType("PRODUCT_CREATED")
-               .build();
+        ProductEvent productEvent = ProductEvent.newBuilder()
+                .setProductId(product.getProductId().toString())
+                .setName(product.getProductName())
+                .setDescription(product.getProductDescription())
+                .setEventType("PRODUCT_CREATED")
+                .build();
 
-       try {
-           log.info("sending product event {}", productEvent);
-          kafkaTemplate.send(productTopic, productEvent.toByteArray());
+        try {
+            log.info("sending product event {}", productEvent);
+            kafkaTemplate.send(productTopic, productEvent.toByteArray());
 
-           log.info("Successfully sent product event for product ID: {}", product.getProductId());
-       } catch (Exception e){
-           log.error("Exception occurred while sending event", productEvent,e);
-       }
+            log.info("Successfully sent product event for product ID: {}", product.getProductId());
+        } catch (Exception e){
+            log.error("Exception occurred while sending event", productEvent,e);
+        }
     }
 
 }

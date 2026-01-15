@@ -23,11 +23,12 @@ public class ProductController {
         this.productService = productService;
     }
 
+
     @PostMapping("/products")
     @Operation(summary = "create product")
     public ResponseEntity<ProductResponseDTO> createProduct(@RequestBody ProductRequestDTO productRequestDTO){
         ProductResponseDTO productResponseDTO = productService.createProduct(productRequestDTO);
-        return ResponseEntity.ok(productResponseDTO);
+        return ResponseEntity.status(HttpStatus.CREATED).body(productResponseDTO);
     }
 
     @GetMapping("/products")

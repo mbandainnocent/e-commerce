@@ -1,7 +1,5 @@
 package Product_Service.ProductDTO;
 
-import jakarta.persistence.*;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,7 +24,7 @@ public class ProductRequestDTO {
 
     @NotBlank(message = "Manufacturer name is required")
     @Size(max = 100, message = "Manufacturer name cannot exceed 100 characters")
-    private String productManufacturer;
+    private String productManufacture;
 
     @NotBlank(message = "Product category is required")
     private String productCategory;

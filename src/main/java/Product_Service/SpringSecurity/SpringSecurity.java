@@ -13,20 +13,14 @@ public class SpringSecurity {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .authorizeHttpRequests(auth -> auth
-                .anyRequest().permitAll()
-            )
-            .csrf(csrf -> csrf.disable());
-//            .httpBasic(httpBasic -> httpBasic.disable())
-//            .formLogin(form -> form.disable())
-//            .logout(logout -> logout.disable())
-//            .sessionManagement(session -> session.disable())
-//            .securityContext(securityContext -> securityContext.disable())
-//            .requestCache(requestCache -> requestCache.disable())
-//            .anonymous(anonymous -> anonymous.disable())
-//            .servletApi(servletApi -> servletApi.disable())
-//            .headers(headers -> headers.disable());
-            
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth -> auth
+                        .anyRequest().permitAll()
+                )
+                .sessionManagement(session -> session.disable())
+                .securityContext(context -> context.disable())
+                .requestCache(cache -> cache.disable());
         return http.build();
     }
-}
+    }
+
